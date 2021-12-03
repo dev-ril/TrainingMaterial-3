@@ -14,7 +14,9 @@ JNIEXPORT void JNICALL Java_JavaJNI_callback(JNIEnv *env, jobject jthis)
            {
                printf("Error occurred in finding the HashMap");
            }    
+	
            jsize map_len = 3;
+	
            jmethodID init = env->GetMethodID(mapClass, "<init>", "(I)V"); //Obtaining the constructor of the HashMap class
 
            jobject hashMap = env->NewObject(mapClass, init, map_len); //Creating a HashMap object with size map_len...
@@ -27,17 +29,15 @@ JNIEXPORT void JNICALL Java_JavaJNI_callback(JNIEnv *env, jobject jthis)
 
            env->CallObjectMethod(hashMap, put, env->NewStringUTF("OS"),env->NewStringUTF(getenv("OS")));
 
-
-
+	
     	   jclass thisClass = env->GetObjectClass(jthis); // Getting the java class using the object of the java class
 
     	   jmethodID printHashMap = env->GetStaticMethodID(thisClass, "print", "(Ljava/util/HashMap;)V"); // getting the methodID for the method print by using the class name as it is a static method
 
-    		if (printHashMap == NULL) //Checking whether the methodID is obtained or not
-    		{
-    			printf("Error occurred in getting MethodID");
-            }
-        
+    	   if (printHashMap == NULL) //Checking whether the methodID is obtained or not
+    	   {
+    		printf("Error occurred in getting MethodID");
+           }
         
     	   env->CallVoidMethod(jthis,printHashMap, hashMap); //Calling the java method print from c++...
 }
