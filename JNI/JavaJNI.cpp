@@ -9,21 +9,11 @@ using namespace std;
 
 JNIEXPORT void JNICALL Java_JavaJNI_callback(JNIEnv *env, jobject jthis) 
 {
-		   jint one = 1;
-           jclass systemClass = env->FindClass("java/lang/System");
-           if(mapClass == NULL)
-           {
-               printf("Error occurred in finding System class");
-           }
-
-           jmethodID getENV = env->GetMethodID(systemClass, "getenv", "Ljava/util/String")
-
-
 		   jclass mapClass = env->FindClass("java/util/HashMap"); // Getting the HashMap class from the java.util package
            if(mapClass == NULL)
            {
                printf("Error occurred in finding the HashMap");
-           }
+           }    
            jsize map_len = 3;
            jmethodID init = env->GetMethodID(mapClass, "<init>", "(I)V"); //Obtaining the constructor of the HashMap class
 
