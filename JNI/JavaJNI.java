@@ -5,13 +5,15 @@ import java.util.*;
 public class JavaJNI
 {
 
-	static //block that loads the dll file created...
+	/*static 
 	{
-		System.loadLibrary("javajni");
-	}
+		
+	}*/
 
 	public static void main(String[] args) 
 	{
+		System.loadLibrary("javajni");	//invoke the dll file created...
+
 		new JavaJNI().callback();
 	}
 
