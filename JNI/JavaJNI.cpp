@@ -9,7 +9,7 @@ using namespace std;
 
 JNIEXPORT void JNICALL Java_JavaJNI_callback(JNIEnv *env, jobject jthis) 
 {
-		   jclass mapClass = env->FindClass("java/util/HashMap"); // Getting the HashMap class from the java.util package
+	   jclass mapClass = env->FindClass("java/util/HashMap"); // Getting the HashMap class from the java.util package
            if(mapClass == NULL)
            {
                printf("Error occurred in finding the HashMap");
